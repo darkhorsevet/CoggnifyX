@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coggnify X - Horse Owner Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐎 Coggnify X</h1>
+            <p>Secure Horse Owner Verification System</p>
+        </header>
+
+        <!-- Step 1: ID Verification -->
+        <div id="id-verification" class="step active">
+            <h2>Step 1: Verify Your Identity</h2>
+            <p>Scan your driver's license to create your secure owner account</p>
+            
+            <div class="camera-section">
+                <video id="camera" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+            </div>
+            
+            <div class="controls">
+                <button id="start-camera" class="btn-primary">Start Camera</button>
+                <button id="capture-front" class="btn-secondary" style="display: none;">Capture Front</button>
+                <button id="capture-back" class="btn-secondary" style="display: none;">Capture Back</button>
+            </div>
+            
+            <div class="captured-images">
+                <div id="front-preview"></div>
+                <div id="back-preview"></div>
+            </div>
+            
+            <button id="process-id" class="btn-primary" style="display: none;">Process License</button>
+        </div>
+
+        <!-- Step 2: Account Creation -->
+        <div id="account-creation" class="step">
+            <h2>Step 2: Create Your Account</h2>
+            <form id="owner-form">
+                <input type="text" id="owner-name" placeholder="Full Name" required>
+                <input type="text" id="owner-phone" placeholder="Phone Number" required>
+                <input type="text" id="owner-address" placeholder="Address" required>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+        </div>
+
+        <!-- Step 3: Horse Registration -->
+        <div id="horse-registration" class="step">
+            <h2>Step 3: Register Your Horses</h2>
+            <form id="horse-form">
+                <input type="text" id="horse-name" placeholder="Horse Name" required>
+                <input type="text" id="horse-breed" placeholder="Breed" required>
+                <input type="text" id="horse-color" placeholder="Color/Markings" required>
+                <input type="text" id="microchip-id" placeholder="Microchip ID (optional)">
+                <button type="submit" class="btn-primary">Add Horse</button>
+            </form>
+            
+            <div id="horse-list">
+                <h3>Your Horses:</h3>
+                <div id="horses"></div>
+            </div>
+        </div>
+
+        <!-- Step 4: Verification Codes -->
+        <div id="verification-codes" class="step">
+            <h2>Your Owner Dashboard</h2>
+            <div id="owner-info"></div>
+            <div id="verification-code">
+                <h3>Current Verification Code:</h3>
+                <div id="current-code" class="code-display">------</div>
+                <p>Show this code to verify horse ownership</p>
+                <button id="refresh-code" class="btn-secondary">Refresh Code</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
